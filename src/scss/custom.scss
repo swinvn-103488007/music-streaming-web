@@ -4,7 +4,9 @@
 
 $custom-theme-colors: (
     "app-bg": #ECF2FD,
-    "app-secondary": #F36921
+    "app-text": #2E3271,
+    "app-tertiary": #F36921,
+    "app-icon": rgba(124,141,181,.72)
 );
 
 $theme-colors: map-merge($custom-theme-colors , $theme-colors);
