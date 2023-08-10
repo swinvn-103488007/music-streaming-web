@@ -1,12 +1,12 @@
 # music-streaming-web
 
-# video demo and explain
-Link: https://drive.google.com/file/d/1MFg1AnWTsgqbRKEmsmx8rONdXLWHabL1/view?usp=sharing
-
 ## Project setup
 ```
 npm install
 ```
+
+## video demo and explain
+Link: https://drive.google.com/file/d/1MFg1AnWTsgqbRKEmsmx8rONdXLWHabL1/view?usp=sharing
 
 ### Compiles and hot-reloads for development
 ```
