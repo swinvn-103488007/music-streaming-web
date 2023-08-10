@@ -1,36 +1,55 @@
 <template>
-  <div class="card">
-    <img :src="imgUrl" class="card-img-top" alt="artist-img" />
-    <div class="card-body">
-      <h5 class="card-title">{{ props.name }}</h5>
-      <a href="#" class="btn btn-primary">View Details</a>
+  <div class="artist-card">
+    <div class="artist-card-img-container">
+      <img :src="imgUrl" class="artist-card-img" alt="artist-img" />
+    </div>
+    <div>
+      <h6 class="artist-card-title">{{ props.name }}</h6>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from "vue";
 
 const props = defineProps({
   imgUrl: String,
-  name: String
-})
-
+  name: String,
+});
 </script>
 
 <style scoped>
-.card {
-  min-width: 13rem;
-  border: 1px solid rgba(243, 105, 33, .15);
+.artist-card {
+  max-width: 13rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  padding: 8px 8px 0px 8px ;
+  margin-bottom: 1rem;
 }
-.card-img-top {
-  width: 80%;
-  height: auto;
-  vertical-align: middle;
+
+.artist-card-img-container {
+  width: 100%; /* Set the width and height of the container */
+  aspect-ratio: 1 / 1;
+  border-radius: 50%; /* Create a perfect circle by setting border-radius to 50% */
+  overflow: hidden; /* Hide any part of the image that exceeds the circular shape */
+  margin-bottom: 0.5rem;
+  transition: transform 200ms ease;
+}
+
+.artist-card:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.artist-card-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-
+@media screen and (max-width: 576px) {
+  .artist-card h6 {
+    font-size: 0.83rem;
+  }
+}
 </style>

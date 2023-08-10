@@ -1,23 +1,28 @@
 <script setup>
 import { defineProps, defineEmits } from "vue";
+import PlusCircleOutline from "vue-material-design-icons/PlusCircleOutline.vue";
 
 const props = defineProps({
   track: Object,
 });
 
-const emits = defineEmits(["playSong", "addTrackToDelete"]);
+const emits = defineEmits(["addTrackToPlaylist"]);
+
+function addTrackToPlaylist() {
+  const trackUris = [props.track.uri];
+  emits("addTrackToPlaylist", trackUris);
+}
 </script>
 
 <template>
-  <!-- Song row for track detail -->
+  <!-- Song row for search result -->
   <div class="songRow">
     <img
       class="songRow__album"
       :src="props.track?.album?.images[0]?.url"
-      @click="emits('playSong', props?.track?.uri)"
       alt=""
     />
-    <div class="songRow__info" @click="emits('playSong', props?.track?.uri)">
+    <div class="songRow__info">
       <h1>{{ props.track?.name }}</h1>
       <p>
         {{
@@ -27,13 +32,16 @@ const emits = defineEmits(["playSong", "addTrackToDelete"]);
         }}
       </p>
     </div>
+    <div class="add-icon">
+      <PlusCircleOutline @click="addTrackToPlaylist"></PlusCircleOutline>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .songRow {
-  margin: 20px;
-  padding: 20px;
+  box-sizing: border-box;
+  padding: 10px;
   display: flex;
   align-items: center;
   z-index: 100;
@@ -46,7 +54,7 @@ const emits = defineEmits(["playSong", "addTrackToDelete"]);
 }
 
 .songRow__info {
-  margin-left: 20px;
+  padding: 10px;
 }
 
 .songRow__info > h1 {
@@ -56,8 +64,8 @@ const emits = defineEmits(["playSong", "addTrackToDelete"]);
 .songRow__info > p {
   font-size: 14px;
   margin-top: 3px;
-  font-weight: 600;
   color: rgb(124, 141, 181, 0.72);
+  font-weight: 600;
 }
 
 .songRow__album {
@@ -65,19 +73,7 @@ const emits = defineEmits(["playSong", "addTrackToDelete"]);
   width: 40px;
 }
 
-@media screen and (max-width: 576px) {
-  .songRow {
-    margin: 10px;
-    padding: 10px;
-  }
-
-  .songRow__info > h1 {
-    font-size: 12px;
-  }
-
-  .songRow__info > p {
-    font-size: 10px;
-    margin-top: 3px;
-  }
+.add-icon {
+  margin-left: auto;
 }
 </style>
