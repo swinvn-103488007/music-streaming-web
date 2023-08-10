@@ -1,5 +1,8 @@
 # music-streaming-web
 
+# video demo and explain
+Link: https://drive.google.com/file/d/1MFg1AnWTsgqbRKEmsmx8rONdXLWHabL1/view?usp=sharing
+
 ## Project setup
 ```
 npm install
@@ -22,3 +25,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
